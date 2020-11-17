@@ -18,7 +18,8 @@ class Chronometer {
     return Math.round(this.currentTime % 60);
   }
   getMilliseconds() {
-    return Math.round(this.currentTimeInMilli % 360000);
+     return Math.round(this.currentTimeInMilli % 360000)%100;
+      
   }
 
   twoDigitsNumber(num) {

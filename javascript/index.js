@@ -34,6 +34,9 @@ function printSeconds() {
 // ==> BONUS
 function printMilliseconds() {
   // ... your code goes here
+  const milli = chronometer.getMilliseconds();
+  milDec.innerHTML = Math.floor(milli/10);
+  milUni.innerHTML = milli % 10;
 }
 
 function printSplit(splitTime) {
@@ -46,6 +49,9 @@ function printSplit(splitTime) {
 
 function clearSplits() {
   // ... your code goes here
+  chronometer.splitTime = 0;
+  splits.innerHTML = '';
+
 }
 
 function setStopBtn() {
@@ -84,7 +90,8 @@ btnLeft.addEventListener('click', () => {
     print = setInterval(() => {
       printMinutes();
       printSeconds();
-    }, 1000);
+      printMilliseconds();
+    }, 10);
   } else {
     chronometer.stopClick();
     console.log('The clock has been stopped');
@@ -99,6 +106,7 @@ btnRight.addEventListener('click', () => {
   // ... your code goes here
   if (btnRight.className === 'btn reset') {
     chronometer.resetClick();
+    clearSplits();
     printMinutes();
     printSeconds();
   } else {
